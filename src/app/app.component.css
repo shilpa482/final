@@ -1,0 +1,12 @@
+
+.nav-link:hover{
+    border-left: 5px solid orange; 
+   /* animation-name: slowborder;
+   animation-timing-function: ease;
+   animation-duration: 1s; */
+  
+}
+.nav-link{
+    align-items: right;
+    top : 0px;
+}

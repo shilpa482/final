@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <nav class=" mt-1 navbar navbar-expand-lg navbar-light bg-light rounded">
+    <a class="navbar-brand" routerLink="home" routerLinkActive="active">Welcome Placement Officer</a>
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a routerLink='/tpodashboard' class="nav-link p-3" > <i class="fa fa-envelope-open-o"></i>Calender</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle p-3"  id="navbardrop" data-toggle="dropdown" style="cursor: pointer;">
+           <i class="fa fa-building"></i>{{TPOName}}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right bg-light">
+            <a class="dropdown-item p-2"  style="cursor: pointer;">PROFILE</a>
+            <a class="dropdown-item p-2" (click)="logout()" style="cursor: pointer;">LOGOUT</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<div class="container mt-5 bg-light">
+    <div class="row">
+        <div *ngIf="postedMsg;else alreadyposted">
+            <div class="alert alert-success"><strong>{{postedMsg}}</strong></div>
+            <ng-template #alreadyposted>
+                <div class="alert alert-danger"><strong>{{alreadyposted}}</strong></div>
+            </ng-template>
+        </div>
+        
+        <div class="col-md-12">
+            <form class="form-horizontal" [formGroup]="postjobForm" (ngSubmit)="postdata(postjobForm)">
+                <div class=" form-group">
+                    <label for="companyname" class="col-sm-3 control-label"><b>Company Name</b></label>
+                    <input type="text" name="companyname" id="companyname" formControlName="companyname" class="form-control" placeholder="Company Name">
+                </div>
+                <div class=" form-group">
+                    <label for="jobrole" class="col-sm-3 control-label"><b>JobRole</b></label>
+                    <input type="text" name="jobrole" id="jobrole" formControlName="jobrole" class="form-control" placeholder="JOBROLE">
+                </div>
+                <div class=" form-group">
+                    <label for="skills" class="col-sm-3 control-label"><b>Required Skills</b></label>
+                    <input type="text" name="skills" id="skills" formControlName="skills" class="form-control" placeholder="Skills">
+                </div>
+                
+                <div class=" form-group">
+                    <label for="compensation" class="col-sm-3 control-label"><b>Compensation</b></label>
+                    <input type="text" name="compensation" id="compensation" formControlName="compensation" class="form-control" placeholder="Compensation">
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-sm-3"><b>JobType</b></label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="internship" name="jobtype" value="Internship" formControlName="jobtype">Internship
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" checked id="permanent" name="jobtype" formControlName="jobtype" value="Full-Time">Full Time
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button button type="submit" class="btn btn-success form-control"><strong>Post Job</strong></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
