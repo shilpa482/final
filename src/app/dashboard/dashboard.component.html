@@ -1,0 +1,29 @@
+
+    <div class="container-fluid">
+        <nav class=" mt-1 navbar navbar-expand-lg navbar-light bg-light rounded">
+        <a class="navbar-brand" routerLink="home" routerLinkActive="active">Welcome , Student!</a>
+          <!-- Links -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Dropdown -->
+            <li class="nav-item">
+              <a routerLink="dashboard" routerLinkActive="active" class="nav-link p-3" > <i class="fa fa-envelope-open-o"></i> Dashboard</a>
+            </li>
+        
+              <li class="nav-item">
+                <a routerLink="/dashboard/createresume" routerLinkActive="active" class="nav-link p-3" > <i class="fa fa-envelope-open-o"></i>Create Resume</a>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle p-3"  id="navbardrop" data-toggle="dropdown" style="cursor: pointer;">
+               <i class="fa fa-building"></i>Student_Name
+              </a>
+            
+              <div class="dropdown-menu dropdown-menu-right bg-light">
+                <a class="dropdown-item p-2"  routerLink="/dashboard/profile" routerLinkActive="active" style="cursor: pointer;">PROFILE</a>
+                <a class="dropdown-item p-2"  routerLink="/dashboard/updateprofile" routerLinkActive="active" style="cursor: pointer;">UPDATE PROFILE</a>
+                <a class="dropdown-item p-2" (click)="logout()" style="cursor: pointer;">LOGOUT</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <router-outlet></router-outlet>

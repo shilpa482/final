@@ -1,0 +1,65 @@
+
+    <div class="container-fluid">
+      <nav class=" mt-1 navbar navbar-expand-lg navbar-light bg-light rounded">
+      <a class="navbar-brand" routerLink="home" routerLinkActive="active">Welcome , Student!</a>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Dropdown -->
+          <li class="nav-item">
+            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link p-3" > <i class="fa fa-envelope-open-o"></i> Dashboard</a>
+          </li>
+          
+            <li class="nav-item">
+              <a routerLink="/dashboard/createresume" routerLinkActive="active" class="nav-link p-3" > <i class="fa fa-envelope-open-o"></i>Create Resume</a>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle p-3"  id="navbardrop" data-toggle="dropdown" style="cursor: pointer;">
+             <i class="fa fa-building"></i>Student_Name
+            </a>
+          
+            <div class="dropdown-menu dropdown-menu-right bg-light">
+              <a class="dropdown-item p-2"  routerLink="/dashboard/profile" routerLinkActive="active"style="cursor: pointer;">PROFILE</a>
+                <a class="dropdown-item p-2"  routerLink="/dashboard/updateprofile" routerLinkActive="active" style="cursor: pointer;">UPDATE PROFILE</a>
+                <a class="dropdown-item p-2" (click)="logout()" style="cursor: pointer;">LOGOUT</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <router-outlet></router-outlet>
+<h2 class="text-center">Profile</h2>
+<div  *ngIf="alert" class="alert alert-success alert-dismissible fade show"  role="alert">
+    <strong>Success ! </strong>Your data has been updated successfully!
+    <button  type="button"  onclick="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-6 col-md-offset-3">
+<div class="jumbotron">
+<form [formGroup]="profileForm" (ngSubmit)="postdata(profileForm)" autocomplete="off" >
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" name="name" value="{name}" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Name">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" value="{email}" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
+</div>
+<div class="form-group">
+    <label for="Phone">PhoneNumber</label>
+    <input type="text" name="Phone" value="{phone}" formControlName="phone" autocomplete="off" class="form-control input-sm" placeholder="Phone">
+</div>
+<div class="form-group">
+    <label for="Branch">Branch</label>
+    <input type="text" name="Branch" value="{branch}" formControlName="branch" autocomplete="off" class="form-control input-sm" placeholder="Branch">
+</div>
+
+</form>
+</div>
+</div>
+<div class="col-md-3">
+</div>
+</div>
